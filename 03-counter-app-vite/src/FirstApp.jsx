@@ -60,24 +60,26 @@ export function FirstApp(props){
 //para definir el tipo de dato de los props
 import PropTypes from 'prop-types';
 
-export function FirstApp({title, subtitle=123, name}){
+export function FirstApp({title, subtitle, name}){
+    //console.log("Recibido", title, subtitle, name);
     return (
         <>
             <h1 data-testid="test-title">{title}</h1>
-            <h1>{subtitle}</h1> 
-            <h1>{name}</h1>        
+            <h2>{subtitle}</h2> 
+            <p>{name}</p>        
         </>
     );
 }
 
 FirstApp.propTypes = {
     title: PropTypes.string.isRequired,
-    subtitle: PropTypes.string.isRequired
+    subtitle: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired
 }
 
 
 FirstApp.defaultProps = {
-    //title: 'No hay titulo',
-    subtitle: "No hay subtitulo",
+    title: 'No hay titulo',
+    subtitle: 'No hay subtitulo',
     name: 'Gricelda'
 }

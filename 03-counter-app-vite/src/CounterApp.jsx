@@ -24,9 +24,9 @@ export function CounterApp({value}){
         <>
             <h1>CounterApp</h1>
             <h2>{counter}</h2>  
-            <button onClick={handleAddition}> +1 </button> 
-            <button onClick={handleSubtract}> -1 </button> 
-            <button onClick={handleReset}> Reset </button> 
+            <button aria-label='btn-add' onClick={handleAddition}> +1 </button> 
+            <button aria-label='btn-subt' onClick={handleSubtract}> -1 </button> 
+            <button aria-label='btn-reset' onClick={handleReset}> Reset </button> 
         </>
     );
 }

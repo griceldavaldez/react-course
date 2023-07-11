@@ -28,14 +28,10 @@ describe('Pruebas en <FirstApp />', () => {
 
     test('debe de mostrar el subtitulo enviado por props', () => {
         
-        render( 
-            <FirstApp 
-                title={ title }
-                subTitle={ subTitle }
-            />  
-        );
+        render(<FirstApp title={title} subtitle={subTitle} name={'Gricelda'}/> );
 
-        expect( screen.getAllByText(subTitle).length ).toBe(2);
+        console.log(screen.getAllByText(subTitle).length);
+        expect(screen.getAllByText(subTitle).length).toBe(1);
 
     });
 
