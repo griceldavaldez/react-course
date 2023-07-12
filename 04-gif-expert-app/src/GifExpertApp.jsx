@@ -19,7 +19,7 @@ export const GifExpertApp = () => {
 
         <AddCategory 
             //setCategories={setCategories}
-            onNewCategories={(event) => onAddCategory(event)}
+            onNewCategory={(event) => onAddCategory(event)}
         />
 
         {
