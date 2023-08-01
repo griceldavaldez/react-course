@@ -9,16 +9,18 @@ import { AuthLayout } from '../layout/AuthLayout';
 import { useForm } from '../../hooks';
 import { startGoogleSignIn, startLoginWithEmailPassword } from '../../store/auth';
 
+const formData = {
+  email: '',
+  password: ''
+}
+
 
 export const LoginPage = () => {
 
   const { status, errorMessage } = useSelector( state => state.auth );
 
   const dispatch = useDispatch();
-  const { email, password, onInputChange } = useForm({
-    email: '',
-    password: ''
-  });
+  const { email, password, onInputChange } = useForm(formData);
 
   const isAuthenticating = useMemo( () => status === 'checking', [status]);
 
@@ -37,7 +39,9 @@ export const LoginPage = () => {
 
   return (
     <AuthLayout title="Login">
-      <form onSubmit={ onSubmit } className='animate__animated animate__fadeIn animate__faster'>
+      <form 
+        aria-label="submit-form"
+        onSubmit={ onSubmit } className='animate__animated animate__fadeIn animate__faster'>
           <Grid container>
             <Grid item xs={ 12 } sx={{ mt: 2 }}>
               <TextField 
@@ -57,6 +61,9 @@ export const LoginPage = () => {
                 type="password" 
                 placeholder='Contraseña' 
                 fullWidth
+                inputProps={{
+                  'data-testid': 'password'
+                }}
                 name="password"
                 value={ password }
                 onChange={ onInputChange }
@@ -91,6 +98,7 @@ export const LoginPage = () => {
                    disabled={ isAuthenticating }
                    variant='contained' 
                    fullWidth
+                   aria-label="google-btn"
                    onClick={ onGoogleSignIn }>
                   <Google />
                   <Typography sx={{ ml: 1 }}>Google</Typography>
