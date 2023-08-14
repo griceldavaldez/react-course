@@ -16,7 +16,7 @@ export const AddCategory = ({onNewCategory}) => {
         if(newInputValue<=1) return;
         //setCategories((categories) => [inputValue], ...categories);
         onNewCategory(newInputValue); //se emite el nuevo valor
-        setInputValue('');
+        setInputValue(newInputValue);
     }
 
   return (
